@@ -13,45 +13,91 @@
  * and its lexeme to the listing file
  */
 void printToken( TokenType token, const char* tokenString )
-{ switch (token)
-  { case IF:
-    case THEN:
-    case ELSE:
-    case END:
-    case REPEAT:
-    case UNTIL:
-    case READ:
-    case WRITE:
-      pc(
-         "reserved word: %s\n",tokenString);
-      break;
-    case ASSIGN: pc(":=\n"); break;
-    case LT: pc("<\n"); break;
-    case EQ: pc("=\n"); break;
-    case LPAREN: pc("(\n"); break;
-    case RPAREN: pc(")\n"); break;
-    case SEMI: pc(";\n"); break;
-    case PLUS: pc("+\n"); break;
-    case MINUS: pc("-\n"); break;
-    case TIMES: pc("*\n"); break;
-    case OVER: pc("/\n"); break;
-    case ENDFILE: pc("EOF\n"); break;
-    case NUM:
-      pc(
-          "NUM, val= %s\n",tokenString);
-      break;
-    case ID:
-      pc(
-          "ID, name= %s\n",tokenString);
-      break;
-    case ERROR:
-      pce(
-          "ERROR: %s\n",tokenString);
-      break;
-    default: /* should never happen */
-      pce("Unknown token: %d\n",token);
-  }
+{
+    switch (token)
+    {
+        case IF:
+        case ELSE:
+        case INT:
+        case RETURN:
+        case VOID:
+        case WHILE:
+            pc("reserved word: %s\n", tokenString);
+            break;
+        case ASSIGN: 
+            pc("=\n"); 
+            break;
+        case LT: 
+            pc("<\n"); 
+            break;
+        case LE: 
+            pc("<=\n"); 
+            break;
+        case GT: 
+            pc(">\n"); 
+            break;
+        case GE: 
+            pc(">=\n"); 
+            break;
+        case EQ: 
+            pc("==\n"); 
+            break;
+        case NE: 
+            pc("!=\n"); 
+            break;
+        case PLUS: 
+            pc("+\n"); 
+            break;
+        case MINUS: 
+            pc("-\n"); 
+            break;
+        case TIMES: 
+            pc("*\n"); 
+            break;
+        case OVER: 
+            pc("/\n"); 
+            break;
+        case LPAREN: 
+            pc("(\n"); 
+            break;
+        case RPAREN: 
+            pc(")\n"); 
+            break;
+        case LBRACKET: 
+            pc("[\n"); 
+            break;
+        case RBRACKET: 
+            pc("]\n"); 
+            break;
+        case LCURLY: 
+            pc("{\n"); 
+            break;
+        case RCURLY: 
+            pc("}\n"); 
+            break;
+        case SEMI: 
+            pc(";\n"); 
+            break;
+        case COMMA: 
+            pc(",\n"); 
+            break;
+        case ENDFILE: 
+            pc("EOF\n"); 
+            break;
+        case NUM:
+            pc("NUM, val= %s\n", tokenString);
+            break;
+        case ID:
+            pc("ID, name= %s\n", tokenString);
+            break;
+        case ERROR:
+            pce("ERROR: %s\n", tokenString);
+            break;
+        default: 
+            pce("Unknown token: %d\n", token);
+    }
 }
+
 
 /* Function newStmtNode creates a new statement
  * node for syntax tree construction

@@ -1,9 +1,6 @@
 /****************************************************/
 /* File: globals.h                                  */
-/* Global types and vars for TINY compiler          */
-/* must come before other include files             */
-/* Compiler Construction: Principles and Practice   */
-/* Kenneth C. Louden                                */
+/* Global types and vars for C- compiler            */
 /****************************************************/
 
 #ifndef _GLOBALS_H_
@@ -24,17 +21,17 @@
 #endif
 
 /* MAXRESERVED = the number of reserved words */
-#define MAXRESERVED 8
+#define MAXRESERVED 6
 
 typedef enum 
     /* book-keeping tokens */
-   {ENDFILE,ERROR,
+   {ENDFILE, ERROR,
     /* reserved words */
-    IF,THEN,ELSE,END,REPEAT,UNTIL,READ,WRITE,
+    IF, ELSE, INT, RETURN, VOID, WHILE,
     /* multicharacter tokens */
-    ID,NUM,
+    ID, NUM,
     /* special symbols */
-    ASSIGN,EQ,LT,PLUS,MINUS,TIMES,OVER,LPAREN,RPAREN,SEMI
+    ASSIGN, EQ, NE, LT, LE, GT, GE, PLUS, MINUS, TIMES, OVER, LPAREN, RPAREN, LBRACKET, RBRACKET, LCURLY, RCURLY, SEMI, COMMA
    } TokenType;
 
 extern FILE* source; /* source code text file */
@@ -72,34 +69,11 @@ typedef struct treeNode
 /***********   Flags for tracing       ************/
 /**************************************************/
 
-/* EchoSource = TRUE causes the source program to
- * be echoed to the listing file with line numbers
- * during parsing
- */
 extern int EchoSource;
-
-/* TraceScan = TRUE causes token information to be
- * printed to the listing file as each token is
- * recognized by the scanner
- */
 extern int TraceScan;
-
-/* TraceParse = TRUE causes the syntax tree to be
- * printed to the listing file in linearized form
- * (using indents for children)
- */
 extern int TraceParse;
-
-/* TraceAnalyze = TRUE causes symbol table inserts
- * and lookups to be reported to the listing file
- */
 extern int TraceAnalyze;
-
-/* TraceCode = TRUE causes comments to be written
- * to the TM code file as code is generated
- */
 extern int TraceCode;
+extern int Error;
 
-/* Error = TRUE prevents further passes if an error occurs */
-extern int Error; 
 #endif

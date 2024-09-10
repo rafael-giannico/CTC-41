@@ -1,60 +1,72 @@
 /****************************************************/
 /* File: cminus.l                                   */
 /* Lex specification for C-                         */
-/* Project for CES41: Compiladores                  */
+/* Adapted for new definitions                      */
 /****************************************************/
 
 %option noyywrap 
-/* opção noyywrap pode ser necessária para novas versões do flex
-  limitação: não compila mais de um arquivo fonte de uma só vez (não precisamos disso)
-  https://stackoverflow.com/questions/1480138/undefined-reference-to-yylex 
-*/ 
 
 %{
 #include "globals.h"
 #include "util.h"
 #include "scan.h"
-/* lexeme of identifier or reserved word */
 char tokenString[MAXTOKENLEN+1];
 %}
+
 digit       [0-9]
 number      {digit}+
 letter      [a-zA-Z]
 identifier  {letter}+
 newline     \n
+
 whitespace  [ \t]+
+
 %%
+
 "if"            {return IF;}
-"then"          {return THEN;}
 "else"          {return ELSE;}
-"end"           {return END;}
-"repeat"        {return REPEAT;}
-"until"         {return UNTIL;}
-"read"          {return READ;}
-"write"         {return WRITE;}
-":="            {return ASSIGN;}
-"="             {return EQ;}
-"<"             {return LT;}
+"int"           {return INT;}
+"return"        {return RETURN;}
+"void"          {return VOID;}
+"while"         {return WHILE;}
+
 "+"             {return PLUS;}
 "-"             {return MINUS;}
 "*"             {return TIMES;}
 "/"             {return OVER;}
+"<"             {return LT;}
+"<="            {return LE;}
+">"             {return GT;}
+">="            {return GE;}
+"=="            {return EQ;}
+"!="            {return NE;}
+"="             {return ASSIGN;}
+";"             {return SEMI;}
+","             {return COMMA;}
 "("             {return LPAREN;}
 ")"             {return RPAREN;}
-";"             {return SEMI;}
-{number}        {return NUM;}
-{identifier}    {return ID;}
-{newline}       {lineno++;}
-{whitespace}    {/* skip whitespace */}
-"{"             { char c;
+"["             {return LBRACKET;}
+"]"             {return RBRACKET;}
+"{"             {return LCURLY;}
+"}"             {return RCURLY;}
+"/*"            { char c;
                   do
                   { c = input();
                     if (c == EOF) break;
                     if (c == '\n') lineno++;
-                  } while (c != '}');
+                  } while (!(c == '*' && input() == '/'));
                 }
+
+{identifier}    {return ID;}
+{number}        {return NUM;}
+
+{newline}       {lineno++;}
+{whitespace}    {/* skip whitespace */}
+
 .               {return ERROR;}
+
 %%
+
 TokenType getToken(void)
 { static int firstTime = TRUE;
   TokenType currentToken;

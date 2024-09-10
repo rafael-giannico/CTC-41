@@ -1,0 +1,126 @@
+	2: ERROR: 
+	3: reserved word: int
+	3: ID, name= gdc
+	3: (
+	3: reserved word: int
+	3: ID, name= u
+	3: ,
+	3: reserved word: int
+	3: ID, name= v
+	3: )
+	3: ERROR: 
+	4: {
+	4: ERROR: 
+	5: reserved word: int
+	5: ID, name= x
+	5: ;
+	5: ERROR: 
+	6: reserved word: int
+	6: ID, name= r
+	6: ;
+	6: ERROR: 
+	7: reserved word: int
+	7: ID, name= y
+	7: ;
+	7: ERROR: 
+	8: ID, name= x
+	8: =
+	8: NUM, val= 1
+	8: ;
+	8: ID, name= y
+	8: =
+	8: NUM, val= 1
+	8: ;
+	8: ERROR: 
+	9: reserved word: if
+	9: (
+	9: ID, name= v
+	9: ==
+	9: NUM, val= 0
+	9: )
+	9: ID, name= r
+	9: =
+	9: ID, name= u
+	9: ;
+	9: ERROR: 
+	10: reserved word: else
+	10: ID, name= r
+	10: =
+	10: ID, name= gdc
+	10: (
+	10: ID, name= v
+	10: ,
+	10: ID, name= u
+	10: -
+	10: ID, name= u
+	10: /
+	10: ID, name= v
+	10: *
+	10: ID, name= v
+	10: )
+	10: ;
+	10: ERROR: 
+	11: ERROR: 
+	12: ID, name= x
+	12: =
+	12: NUM, val= 1
+	12: ;
+	12: ID, name= y
+	12: =
+	12: NUM, val= 1
+	12: ;
+	12: ERROR: 
+	13: reserved word: return
+	13: ;
+	13: ERROR: 
+	14: }
+	14: ERROR: 
+	15: reserved word: void
+	15: ID, name= main
+	15: (
+	15: reserved word: void
+	15: )
+	15: ERROR: 
+	16: {
+	16: ERROR: 
+	17: reserved word: int
+	17: ID, name= x
+	17: ;
+	17: ERROR: 
+	18: reserved word: int
+	18: ID, name= y
+	18: ;
+	18: ERROR: 
+	19: ID, name= x
+	19: =
+	19: ID, name= input
+	19: (
+	19: )
+	19: ;
+	19: ERROR: 
+	20: ID, name= y
+	20: =
+	20: ID, name= input
+	20: (
+	20: )
+	20: ;
+	20: ERROR: 
+	21: ID, name= x
+	21: =
+	21: ID, name= gdc
+	21: (
+	21: ID, name= x
+	21: ,
+	21: ID, name= y
+	21: )
+	21: ;
+	21: ERROR: 
+	22: ID, name= output
+	22: (
+	22: ID, name= x
+	22: )
+	22: ;
+	22: ERROR: 
+	23: }
+	23: ERROR: 
+	24: EOF

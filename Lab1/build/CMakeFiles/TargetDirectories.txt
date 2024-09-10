@@ -1,0 +1,8 @@
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/mycmcomp.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/runmycmcomp.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/rundiff.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/ddiff.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/lexdiff.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/tiny.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/ITA/Desktop/RAFAEL/ITA/4º semestre/CTC-41/Lab/CTC-41/Lab1/build/CMakeFiles/rebuild_cache.dir
