@@ -11,14 +11,16 @@
 #include "util.h"
 #include "scan.h"
 char tokenString[MAXTOKENLEN+1];
+char currentLine[256];
+extern FILE* redundant_source;
+int printLine1 = 1;
 %}
 
 digit       [0-9]
 number      {digit}+
 letter      [a-zA-Z]
 identifier  {letter}+
-newline     \n
-
+newline     \n|(\r\n)
 whitespace  [ \t]+
 
 %%
@@ -49,19 +51,27 @@ whitespace  [ \t]+
 "]"             {return RBRACKET;}
 "{"             {return LCURLY;}
 "}"             {return RCURLY;}
+
 "/*"            { char c;
                   do
                   { c = input();
                     if (c == EOF) break;
-                    if (c == '\n') lineno++;
+                    if (c == '\n'){
+                      lineno++;
+                      printLine(redundant_source); 
+                    }
                   } while (!(c == '*' && input() == '/'));
                 }
 
 {identifier}    {return ID;}
 {number}        {return NUM;}
 
-{newline}       {lineno++;}
-{whitespace}    {/* skip whitespace */}
+{whitespace}   { /* Não imprime nada, apenas ignora espaços em branco */ }
+
+{newline}       { 
+                  lineno++; 
+                  printLine(redundant_source);  
+                }
 
 .               {return ERROR;}
 
@@ -76,11 +86,19 @@ TokenType getToken(void)
     yyin = source;
     yyout = listing;
   }
-  currentToken = yylex();
-  strncpy(tokenString,yytext,MAXTOKENLEN);
-  if (TraceScan) {
-    pc("\t%d: ",lineno);
-    printToken(currentToken,tokenString);
+
+  if (printLine1 == 1){
+    printLine(redundant_source);
+    printLine1 = 0;
   }
+
+  currentToken = yylex();
+  strncpy(tokenString, yytext, MAXTOKENLEN);
+
+  if (TraceScan) {
+    pc("\t%d: ", lineno);
+    printToken(currentToken, tokenString);
+  }
+
   return currentToken;
 }
